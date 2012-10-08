@@ -22,39 +22,25 @@ public class Question2 extends QuestionBase {
 		// Of course this is how I would do in Java... but...
 		//return Collections.min(set);
 		
-		// Could iterate, but a bin search?  would be faster given what we know about the array
-		return minHalf(set)[0];
+		// Could iterate, but a bin search  would be faster given what we know about the array
+		return findMinElement(0, set.length -1);
 	}
 	
-	public int[] minHalf(int[] set) {
-		log("Halfing array: " + Arrays.toString(set));
-		int mIndex = (set.length / 2); //Rounds down
-		int lIndex = set.length - 1;
-		log("Mid index = " + mIndex + " Last index = " + lIndex);
-		if (mIndex == lIndex) {
+	public int findMinElement(int sIndex, int eIndex) {
+		int mIndex = ((eIndex - sIndex) / 2) + sIndex;
+		if (set[mIndex] < set[sIndex] && set[mIndex] < set[eIndex]) {
 			// Found element
 			int val = set[mIndex];
 			log("Found min element: " + val);
-			return new int[]{val};
-		} else if (set[mIndex] > set[lIndex]) {
+			return val;
+		}
+		log("Halfing array: Mid index = " + mIndex);
+		if (set[mIndex] > set[eIndex]) {
 			log("Min element in last half");
-			//Arrays.copyOfRange(set, mIndex, lIndex); //Faster code way
-			int range = lIndex - mIndex +1; //Include mIndex value
-			int[] nSet = new int[range];
-			for (int i=0; i < range; i++) {
-				nSet[i] = set[mIndex + i];
-			}
-			return minHalf(nSet);
+			return findMinElement(mIndex, eIndex);
 		} else {
 			log("Min element in first half");
-			//Arrays.copyOfRange(set, 0, mIndex); //Faster code way
-			int range = mIndex +1; //Include mIndex value
-			int[] nSet = new int[range];
-			for (int i=0; i < range; i++) {
-				nSet[i] = set[i];
-			}
-			return minHalf(nSet);
+			return findMinElement(0, mIndex);
 		}
 	}
-	
 }
