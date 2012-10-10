@@ -1,13 +1,15 @@
-package chapter.pre;
+package chapter00;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class Question1Test {
+import chapter00.Question01;
+
+public class Question01Test {
 	
 	public void calcTest(int hour, int minute, int angle) {
-		assertEquals(angle, new Question1(hour, minute).calculateHandAngle());
+		assertEquals(angle, new Question01(hour, minute).calculateHandAngle());
 		//assertEquals(angle, new Question1(hour, minute).bookAnswer());
 	}
 

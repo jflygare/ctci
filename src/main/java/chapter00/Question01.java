@@ -1,13 +1,13 @@
-package chapter.pre;
+package chapter00;
 
 import base.QuestionBase;
 
-public class Question1 extends QuestionBase {
+public class Question01 extends QuestionBase {
 	
 	private int hour;
 	private int minute;
 	
-	public Question1(int hour, int minute) {
+	public Question01(int hour, int minute) {
 		super();
 		this.hour = hour;
 		this.minute = minute;

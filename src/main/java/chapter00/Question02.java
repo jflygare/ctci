@@ -1,4 +1,4 @@
-package chapter.pre;
+package chapter00;
 
 //import java.util.Collections;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.Set;
 
 import base.QuestionBase;
 
-public class Question2 extends QuestionBase {
+public class Question02 extends QuestionBase {
 	
 	//private Set<Integer> set;
 	private int[] set = new int[]{3, 4, 5, 6, 7, 1, 2};
