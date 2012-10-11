@@ -1,11 +1,10 @@
 package chapter01;
 
-import java.nio.Buffer;
+import base.QuestionBase;
 
 import com.googlecode.javacpp.Loader;
+import com.googlecode.javacpp.annotation.Cast;
 import com.googlecode.javacpp.annotation.Platform;
-
-import base.QuestionBase;
 
 @Platform(include="../chapter01/Question02.h")
 public class Question02 extends QuestionBase {
@@ -17,7 +16,7 @@ public class Question02 extends QuestionBase {
 	
 	static { Loader.load(); }
 	
-	public static native void process(Buffer buffer, int size);
+	public static native void reverse(@Cast("char*") byte[] str);
 	
 
 }
