@@ -72,6 +72,11 @@
 								<argument>${project.build.outputDirectory}</argument>
 								<argument>-d</argument>
 								<argument>${project.build.outputDirectory}/lib/</argument>
+								<!-- FIXME: Use environment variable or propfile or something -->
+<!-- 								<argument>-Dcompiler.includepath=C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include</argument> -->
+								<argument>-properties</argument>
+								<argument>windows-x86-mingw</argument>
+								<argument>-Dcompiler.includepath=C:\MinGW64\include</argument>
 							</arguments>
 						</configuration>
 					</execution>
