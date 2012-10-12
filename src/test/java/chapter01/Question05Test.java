@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-public class Question5Test {
+public class Question05Test {
 
 	@SuppressWarnings("serial")
 	private Map<String, String> examplesMap = new HashMap<String, String>() {
