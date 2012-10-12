@@ -64,4 +64,8 @@ public class Question05 extends QuestionBase {
 		log(output + " shorter than " + input + " = " + shorter);
 		return (shorter) ? output : input;
 	}
+
+	public String compressBookAnswer(String input) {
+		return null;
+	}
 }
