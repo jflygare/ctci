@@ -36,6 +36,11 @@
 			<artifactId>javacpp</artifactId>
 			<version>0.2</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -64,8 +69,10 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
-						<!-- Running this script first will ensure the compiler/linker create a 32bit library -->
-							<executable>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\vcvars32.bat</executable>
+							<!-- Running this script first will ensure the compiler/linker create 
+								a 32bit library -->
+							<executable>C:\Program Files (x86)\Microsoft Visual Studio
+								11.0\VC\bin\vcvars32.bat</executable>
 						</configuration>
 					</execution>
 					<execution>
@@ -84,10 +91,11 @@
 								<argument>-d</argument>
 								<argument>${project.build.outputDirectory}/lib/</argument>
 								<!-- FIXME: Use environment variable or propfile or something -->
-								<argument>-Dcompiler.includepath=C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include</argument>
-<!-- 								<argument>-properties</argument> -->
-<!-- 								<argument>windows-x86-mingw</argument> -->
-<!-- 								<argument>-Dcompiler.includepath=C:\MinGW64\include</argument> -->
+								<argument>-Dcompiler.includepath=C:\Program Files
+									(x86)\Microsoft Visual Studio 11.0\VC\include</argument>
+								<!-- <argument>-properties</argument> -->
+								<!-- <argument>windows-x86-mingw</argument> -->
+								<!-- <argument>-Dcompiler.includepath=C:\MinGW64\include</argument> -->
 							</arguments>
 						</configuration>
 					</execution>
