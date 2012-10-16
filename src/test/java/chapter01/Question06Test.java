@@ -1,7 +1,6 @@
 package chapter01;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 
@@ -60,11 +59,6 @@ public class Question06Test {
 		assertTrue(Arrays.equals(c2, matrix[dim - 1][dim - 1]));
 		assertTrue(Arrays.equals(c3, matrix[0][0]));
 		assertTrue(Arrays.equals(c4, matrix[dim - 1][0]));
-	}
-
-	@Test
-	public void testRotateMatrixBookAnswer() {
-		fail("Not yet implemented");
 	}
 
 }

@@ -3,9 +3,7 @@ package chapter01;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import base.QuestionBase;
-
-public class Question05 extends QuestionBase {
+public class Question05 extends ChapterQuestionBase {
 
 	@Override
 	public String question() {
@@ -63,9 +61,5 @@ public class Question05 extends QuestionBase {
 		boolean shorter = output.length() < input.length();
 		log(output + " shorter than " + input + " = " + shorter);
 		return (shorter) ? output : input;
-	}
-
-	public String compressBookAnswer(String input) {
-		return null;
 	}
 }

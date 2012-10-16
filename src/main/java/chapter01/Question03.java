@@ -2,9 +2,7 @@ package chapter01;
 
 import java.util.Arrays;
 
-import base.QuestionBase;
-
-public class Question03 extends QuestionBase {
+public class Question03 extends ChapterQuestionBase {
 
 	@Override
 	public String question() {
@@ -32,9 +30,5 @@ public class Question03 extends QuestionBase {
 		boolean result = Arrays.equals(arr1, arr2);
 		log(str2 + " permutation of " + str1 + " = " + result);
 		return result;
-	}
-	
-	public boolean isPermutationBookAnswer(String str1, String str2) {
-		return true;
 	}
 }

@@ -1,15 +1,14 @@
 package chapter01;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import chapter01.Question01;
-
 public class Question01Test {
-	
+
 	Question01 sut = new Question01();
-	
+
 	String ONE_SPACE = "abcde fghij";
 	String SIMPLE_FAIL = "aa";
 	String DOUBLE_LETTER = "letter";
@@ -32,11 +31,6 @@ public class Question01Test {
 		assertFalse(sut.hasAllUniqueCharacters(DOUBLE_LETTER));
 		assertFalse(sut.hasAllUniqueCharacters(TWO_SPACES));
 		assertFalse(sut.hasAllUniqueCharacters(SEPARATE_WORDS));
-	}
-
-	@Test
-	public void testHasAllUniqueCharactersBookAnswer() {
-		//fail("Not yet implemented");
 	}
 
 }

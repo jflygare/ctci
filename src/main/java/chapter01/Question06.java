@@ -1,8 +1,6 @@
 package chapter01;
 
-import base.QuestionBase;
-
-public class Question06 extends QuestionBase {
+public class Question06 extends ChapterQuestionBase {
 
 	@Override
 	public String question() {
@@ -67,10 +65,6 @@ public class Question06 extends QuestionBase {
 				}
 			}
 		}
-	}
-
-	public void rotateMatrixBookAnswer() {
-
 	}
 
 	public void printMatrix(byte[][][] matrix) {

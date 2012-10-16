@@ -1,8 +1,6 @@
 package chapter01;
 
-import base.QuestionBase;
-
-public class Question04 extends QuestionBase {
+public class Question04 extends ChapterQuestionBase {
 
 	@Override
 	public String question() {
@@ -13,11 +11,12 @@ public class Question04 extends QuestionBase {
 				+ "EXAMPLE\n" + "Input:  'Mr John Smith    '\n"
 				+ "Output: 'Mr%20John%20Smith'";
 	}
-	
+
 	/*
-	 * This question gives us some pretty clear conditions, which makes creating an algorithm more straight forward
+	 * This question gives us some pretty clear conditions, which makes creating
+	 * an algorithm more straight forward
 	 */
-	
+
 	public void encode(char[] input) {
 		// Could squeeze a bit more optimization by keeping track of how
 		// many spaces were found and shaving that number *2 off the loop
@@ -41,9 +40,5 @@ public class Question04 extends QuestionBase {
 				input[i] = '0'; // let loop increment i
 			}
 		}
-	}
-
-	public void encodeBookAnswer(char[] input) {
-
 	}
 }
