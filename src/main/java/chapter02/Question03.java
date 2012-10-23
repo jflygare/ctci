@@ -27,4 +27,10 @@ public class Question03 extends ChapterQuestionBase {
 		// Remove link from last changed node
 		last.next = null;
 	}
+
+	/*
+	 * AFTER READING THE BOOK I realize that it is un-necessary to traverse the
+	 * whole rest of the list. Simply copy the data and link of the next node
+	 * and then delete it.
+	 */
 }

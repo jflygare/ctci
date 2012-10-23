@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import chapter02.ChapterQuestionBase.Node;
+import chapter02.Question02.IntWrapper;
 
 public class Question02Test {
 
@@ -35,6 +36,17 @@ public class Question02Test {
 		Node n = createNode();
 		sut.log("Node list: " + n);
 		assertEquals(5, sut.endIndex(n, 3).data);
+	}
+
+	/*
+	 * This is example from the book I wanted to try
+	 */
+	@Test
+	public void testNthToLastR2() {
+		Node n = createNode();
+		sut.log("Node list: " + n);
+		// Uses 1 based index
+		assertEquals(6, sut.nthToLastR2(n, 3, new IntWrapper()).data);
 	}
 
 }

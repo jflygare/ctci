@@ -9,14 +9,14 @@ public abstract class ChapterQuestionBase extends QuestionBase {
 	}
 
 	public static class Node {
-		Node next;
-		int data;
+		public Node next;
+		public int data;
 
 		public Node(int data) {
 			this.data = data;
 		}
 
-		Node appendToTail(int data) {
+		public Node appendToTail(int data) {
 			Node end = new Node(data);
 			Node n = this;
 			while (n.next != null) {
@@ -24,6 +24,14 @@ public abstract class ChapterQuestionBase extends QuestionBase {
 			}
 			n.next = end;
 			return end;
+		}
+
+		public Node last() {
+			Node n = this;
+			while (n.next != null) {
+				n = n.next;
+			}
+			return n;
 		}
 
 		@Override
@@ -41,6 +49,36 @@ public abstract class ChapterQuestionBase extends QuestionBase {
 				sb.append(next.toCharString());
 			}
 			return sb.toString();
+		}
+
+	}
+
+	public static class DNode extends Node {
+
+		public DNode prev;
+
+		public DNode(int data) {
+			super(data);
+		}
+
+		public DNode first() {
+			DNode n = this;
+			while (n.prev != null) {
+				n = n.prev;
+			}
+			return n;
+		}
+
+		@Override
+		public Node appendToTail(int data) {
+			DNode end = new DNode(data);
+			DNode n = this;
+			while (n.next != null) {
+				n = (DNode) n.next;
+			}
+			n.next = end;
+			end.prev = n;
+			return end;
 		}
 
 	}

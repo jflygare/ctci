@@ -48,4 +48,35 @@ public class Question02 extends ChapterQuestionBase {
 		// head pointer should be k from end
 		return head;
 	}
+
+	// https://code.google.com/p/ctci/source/browse/trunk/Java/Chapter%202/Question2_2/Question.java
+	/*
+	 * AFTER READING THE BOOK They give a number of different solutions.. The
+	 * recursive approach, I had trouble tracing.. trying it here
+	 */
+
+	public static class IntWrapper {
+		public int value;
+	}
+
+	public Node nthToLastR2(Node head, int n, IntWrapper i) {
+		if (head == null) {
+			log("Reached null [index = " + i.value + "]");
+			return null;
+		}
+		log("Head [" + head.data + "] Index [" + i.value + "]");
+		Node node = nthToLastR2(head.next, n, i);
+		log("Node [" + ((node == null) ? null : node.data) + "] Index ["
+				+ i.value + "]");
+		i.value = i.value + 1;
+		if (i.value == n) {
+			log("Found " + n + " : Head [" + head.data + "] Index [" + i.value
+					+ "]");
+			return head;
+		}
+		log("Returning Node [" + ((node == null) ? null : node.data)
+				+ "] Index [" + i.value + "]");
+		return node;
+	}
+
 }
