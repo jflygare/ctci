@@ -65,7 +65,7 @@ public class Question05 extends ChapterQuestionBase {
 		int x1 = Integer.valueOf(sb1.toString());
 		int x2 = Integer.valueOf(sb2.toString());
 		String sum = String.valueOf(x1 + x2);
-		for (char c : String.valueOf(x1 + x2).toCharArray()) {
+		for (char c : sum.toCharArray()) {
 			if (s == null) {
 				s = new Node(Integer.valueOf(String.valueOf(c)));
 			} else {

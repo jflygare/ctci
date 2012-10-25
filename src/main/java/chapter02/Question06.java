@@ -31,4 +31,10 @@ public class Question06 extends ChapterQuestionBase {
 		// No recursive nodes found
 		return null;
 	}
+
+	/*
+	 * AFTER READING THE BOOK: They recommend an algorithm using 2 runners at
+	 * different speeds and determining loop start based on collisions. This is
+	 * better in that it requires no extra space.
+	 */
 }
