@@ -77,4 +77,80 @@ public abstract class ChapterQuestionBase extends QuestionBase {
 			return null;
 		}
 	}
+
+	// Decided to create generic versions of the classes after a few questions
+	// in
+	public static class Generics {
+		public static class Node<T> {
+			public T data;
+			public Node<T> next;
+
+			public Node(T data) {
+				this.data = data;
+			}
+		}
+
+		// LIFO
+		public static class Stack<T> {
+			// Keep size in sync with push/pop operations
+			// to keep O(1) time complexity. Traversing the nodes
+			// would be less error prone and more flexible, but O(n)
+			protected int size;
+			protected Node<T> top;
+
+			public int size() {
+				return size;
+			}
+
+			public T pop() {
+				if (top != null) {
+					T data = top.data;
+					top = top.next;
+					size--;
+					return data;
+				}
+				return null;
+			}
+
+			public void push(T data) {
+				Node<T> n = new Node<T>(data);
+				n.next = top;
+				top = n;
+				size++;
+			}
+
+			public T peek() {
+				return (top == null) ? null : top.data;
+			}
+
+			public void log(String msg) {
+				System.out.println(msg);
+			}
+		}
+
+		// FIFO
+		public static class queue<T> {
+			Node<T> first;
+			Node<T> last;
+
+			public void add(T data) {
+				if (first == null) {
+					last = new Node<T>(data);
+					first = last;
+				} else {
+					last.next = new Node<T>(data);
+					last = last.next;
+				}
+			}
+
+			public T remove() {
+				if (first != null) {
+					T data = first.data;
+					first = first.next;
+					return data;
+				}
+				return null;
+			}
+		}
+	}
 }
