@@ -123,6 +123,17 @@ public abstract class ChapterQuestionBase extends QuestionBase {
 				return (top == null) ? null : top.data;
 			}
 
+			public T peekTo(int index) {
+				if (index > size) {
+					throw new IndexOutOfBoundsException();
+				}
+				Node<T> n = top;
+				for (int i = 0; i < index; i++) {
+					n = n.next;
+				}
+				return n.data;
+			}
+
 			public void log(String msg) {
 				System.out.println(msg);
 			}
