@@ -102,6 +102,11 @@ public abstract class ChapterQuestionBase extends QuestionBase {
 				return size;
 			}
 
+			// Added for Question 6
+			public boolean isEmpty() {
+				return size == 0;
+			}
+
 			public T pop() {
 				if (top != null) {
 					T data = top.data;
