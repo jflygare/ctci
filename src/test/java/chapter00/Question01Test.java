@@ -1,16 +1,17 @@
 package chapter00;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import chapter00.Question01;
+import base.QuestionTestBase;
 
-public class Question01Test {
+public class Question01Test extends QuestionTestBase<Question01> {
 	
 	public void calcTest(int hour, int minute, int angle) {
-		assertEquals(angle, new Question01(hour, minute).calculateHandAngle());
-		//assertEquals(angle, new Question1(hour, minute).bookAnswer());
+		setQuestionUnderTest(new Question01(hour, minute));
+		assertEquals(angle, getQuestionUnderTest().calculateHandAngle());
+		assertEquals(angle, getQuestionUnderTest().bookAnswer());
 	}
 
 	@Test
@@ -31,6 +32,11 @@ public class Question01Test {
 	@Test
 	public void test0107() {
 		calcTest(1, 7, 12);
+	}
+	
+	@Test
+	public void test0427() {
+		calcTest(4, 27, 42);
 	}
 
 }
