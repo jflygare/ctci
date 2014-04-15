@@ -33,9 +33,11 @@ public abstract class QuestionBase {
 		sb.append("-----------------------------------------------------------------\n");
 		sb.append(question());
 		sb.append("\n");
-		sb.append("Solution time complexity: " + solutionTimeComplexity());
+		sb.append("- Solution time complexity: " + solutionTimeComplexity());
 		sb.append("\n");
-		sb.append("Solution space complexity: " + solutionSpaceComplexity());
+		sb.append("- Solution space complexity: " + solutionSpaceComplexity());
+		sb.append("\n");
+		sb.append("- Answer details: " + answersUrl());
 		sb.append("\n");
 		return sb.toString();
 	}
