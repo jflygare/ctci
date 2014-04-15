@@ -1,5 +1,7 @@
 package chapter01;
 
+import base.BigO;
+
 public class Question04 extends ChapterQuestionBase {
 
 	@Override
@@ -40,5 +42,47 @@ public class Question04 extends ChapterQuestionBase {
 				input[i] = '0'; // let loop increment i
 			}
 		}
+	}
+	
+	public void encodeBookAnswer(char[] input, int length) {
+		// My answer misinterpreted the criteria. The size of the input
+		// array is irrelevant, other than it is sufficiently large.
+		// The true length of the string.. minus the extra empty chars
+		// is provided explicitly
+		
+		// Because we have this information, we can start from that position and move backwards
+		// First, need to get the number of spaces.
+		
+		// Pass 1
+		int spaceCount = 0;
+		for (char c : input) {
+			if (c == ' ') {
+				spaceCount++;
+			}
+		}
+		
+		int newLength = length + (spaceCount * 2);
+		input[newLength] = '\0';
+		for (int i = length -1; i >=0; i--) {
+			if (input[i] == ' ') {
+				input[newLength -1] = '0';
+				input[newLength -2] = '2';
+				input[newLength -3] = '%';
+				newLength = newLength -3;
+			} else {
+				input[newLength -1] = input[i];
+				newLength = newLength -1;
+			}
+		}
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.CONSTANT; // Edits in-place. No extra space needed
 	}
 }
