@@ -1,5 +1,7 @@
 package chapter01;
 
+import base.BigO;
+
 
 public class Question08 extends ChapterQuestionBase {
 
@@ -38,5 +40,17 @@ public class Question08 extends ChapterQuestionBase {
 			// Cannot be rotation if different lengths
 			return false;
 		}
+		
+		// This solution is identical to book
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.QUADRADIC; // Assuming we must take the isSubstring complexity into account
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR; // Always double the size of input
 	}
 }

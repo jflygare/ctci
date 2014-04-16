@@ -6,11 +6,17 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.Random;
 
+import org.junit.Before;
 import org.junit.Test;
 
-public class Question07Test {
+import base.QuestionTestBase;
 
-	private Question07 sut = new Question07();
+public class Question07Test extends QuestionTestBase<Question07> {
+
+	@Before
+	public void setUp() {
+		setQuestionUnderTest(new Question07());
+	}
 
 	private int[][] createMatrix(int rows, int cols) {
 		Random rand = new Random();
@@ -25,7 +31,7 @@ public class Question07Test {
 
 	@Test
 	public void testZeroOutRandom() {
-		sut.zeroOut(createMatrix(5, 7));
+		getQuestionUnderTest().zeroOut(createMatrix(5, 7));
 		// Would take just as much coding to validate the algorithm.
 		// This test is just to eyeball a bunch of different matrixes
 	}
@@ -42,7 +48,7 @@ public class Question07Test {
 		for (int i = 0; i < matrix.length; i++) {
 			assertFalse(Arrays.equals(matrix[i], outMatrix[i]));
 		}
-		sut.zeroOut(matrix);
+		getQuestionUnderTest().zeroOut(matrix);
 		for (int i = 0; i < matrix.length; i++) {
 			assertTrue(Arrays.equals(matrix[i], outMatrix[i]));
 		}

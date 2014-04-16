@@ -3,6 +3,8 @@ package chapter01;
 import java.util.ArrayList;
 import java.util.List;
 
+import base.BigO;
+
 public class Question07 extends ChapterQuestionBase {
 
 	@Override
@@ -27,6 +29,7 @@ public class Question07 extends ChapterQuestionBase {
 		// can use null terminated [] in place of Java List to keep primitive
 		List<Point> zeroPointList = new ArrayList<Question07.Point>();
 		// Pass through whole matrix once to get list of 0 coordinates
+		// Done in O(n^2) time
 		for (int y = 0; y < matrix.length; y++) {
 			for (int x = 0; x < matrix[y].length; x++) {
 				int val = matrix[y][x];
@@ -41,6 +44,15 @@ public class Question07 extends ChapterQuestionBase {
 		}
 		log("Output Martix:");
 		printMatrix(matrix);
+		
+		// Time = ((O(n^2) + O(N)) = O(n^2)
+		// Space = O(N)
+		
+		// If the matrix was symetric, we could half the loops
+		// but would still be O(n^2)
+		
+		// The book answer is like mine, but using arrays to
+		// hold the 0 locations.
 	}
 
 	public void zeroCross(Point p, int[][] matrix) {
@@ -54,6 +66,8 @@ public class Question07 extends ChapterQuestionBase {
 		}
 		log("Zero cross at point: " + p);
 		// printMatrix(matrix);
+		
+		// This function has O(N) time and O(1) space
 	}
 
 	public class Point {
@@ -81,5 +95,15 @@ public class Question07 extends ChapterQuestionBase {
 			sb.append("\n");
 		}
 		log(sb.toString());
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.QUADRADIC;
 	}
 }

@@ -1,5 +1,7 @@
 package chapter01;
 
+import base.BigO;
+
 public class Question06 extends ChapterQuestionBase {
 
 	@Override
@@ -20,12 +22,16 @@ public class Question06 extends ChapterQuestionBase {
 		for (int i = 0; i < dim; i++) {
 			for (int j = 0; j < dim; j++) {
 				int y = j;
-				int x = Math.abs(i - dim) - 1;
+				//int x = Math.abs(i - dim) - 1;
+				int x = dim - i - 1;
 				log(j + "-" + i + " | " + x + "-" + y);
 				newm[y][x] = matrix[i][j];
 			}
 		}
 		return newm;
+		
+		// Simple, but takes O(N) memory.
+		// Loop in a loop = O(n^2) time
 	}
 
 	/*
@@ -54,7 +60,8 @@ public class Question06 extends ChapterQuestionBase {
 					String was = x + "-" + y;
 					int t = y;
 					y = x;
-					x = Math.abs(t - dim) - 1;
+					//x = Math.abs(t - dim) - 1;
+					x = dim - t - 1;
 					String now = x + "-" + y;
 					log(was + " | " + now);
 					// Move value in target cell to tmp
@@ -65,6 +72,11 @@ public class Question06 extends ChapterQuestionBase {
 				}
 			}
 		}
+		
+		// Time = (n * (n^2)) = O(n^2)
+		// Space = O(1)
+		
+		// Book answer is similar to mine, but does not actually account for the 4 byte cell data.
 	}
 
 	public void printMatrix(byte[][][] matrix) {
@@ -79,5 +91,15 @@ public class Question06 extends ChapterQuestionBase {
 			sb.append('\n');
 		}
 		System.out.println(sb.toString());
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.CONSTANT;
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.QUADRADIC;
 	}
 }

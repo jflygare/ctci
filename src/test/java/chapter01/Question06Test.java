@@ -4,11 +4,18 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
+import org.junit.Before;
 import org.junit.Test;
 
-public class Question06Test {
+import base.QuestionTestBase;
 
-	private Question06 sut = new Question06();
+public class Question06Test extends QuestionTestBase<Question06> {
+
+
+	@Before
+	public void setUp() {
+		setQuestionUnderTest(new Question06());
+	}
 
 	private byte[][][] createMatrix(int dim) {
 		byte[][][] matrix = new byte[dim][dim][4];
@@ -26,10 +33,10 @@ public class Question06Test {
 		int dim = 10;
 		byte[][][] matrix = createMatrix(dim);
 		System.out.println("Input Matrix:");
-		sut.printMatrix(matrix);
-		byte[][][] omatrix = sut.rotateMatrix(matrix);
+		getQuestionUnderTest().printMatrix(matrix);
+		byte[][][] omatrix = getQuestionUnderTest().rotateMatrix(matrix);
 		System.out.println("\nOutput Matrix:");
-		sut.printMatrix(omatrix);
+		getQuestionUnderTest().printMatrix(omatrix);
 		// Test 4 corners. Not really a good test, but enough for the purpose
 		byte[] c1 = matrix[0][0];
 		byte[] c2 = matrix[0][dim - 1];
@@ -51,10 +58,10 @@ public class Question06Test {
 		byte[] c3 = matrix[dim - 1][0];
 		byte[] c4 = matrix[dim - 1][dim - 1];
 		System.out.println("Initial Matrix:");
-		sut.printMatrix(matrix);
-		sut.rotateMatrixInPlace(matrix);
+		getQuestionUnderTest().printMatrix(matrix);
+		getQuestionUnderTest().rotateMatrixInPlace(matrix);
 		System.out.println("\nRotated Matrix:");
-		sut.printMatrix(matrix);
+		getQuestionUnderTest().printMatrix(matrix);
 		assertTrue(Arrays.equals(c1, matrix[0][dim - 1]));
 		assertTrue(Arrays.equals(c2, matrix[dim - 1][dim - 1]));
 		assertTrue(Arrays.equals(c3, matrix[0][0]));

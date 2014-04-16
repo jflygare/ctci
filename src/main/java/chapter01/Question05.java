@@ -3,6 +3,8 @@ package chapter01;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import base.BigO;
+
 public class Question05 extends ChapterQuestionBase {
 
 	@Override
@@ -61,5 +63,22 @@ public class Question05 extends ChapterQuestionBase {
 		boolean shorter = output.length() < input.length();
 		log(output + " shorter than " + input + " = " + shorter);
 		return (shorter) ? output : input;
+		
+		// The book explains that this answer has an O(n2) time complexity
+		// due to the iterative concatenation of strings. Use StringBuffer
+		// for O(n)
+		
+		// The book also suggest do a quick check first to see if the compressed
+		// string is longer than the input. And return false sooner for that condition.
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR; // For book solutions
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.LINEAR; // For book solutions
 	}
 }
