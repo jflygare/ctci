@@ -3,6 +3,8 @@ package chapter02;
 import java.util.ArrayList;
 import java.util.List;
 
+import base.BigO;
+
 public class Question02 extends ChapterQuestionBase {
 
 	@Override
@@ -16,7 +18,6 @@ public class Question02 extends ChapterQuestionBase {
 
 	// This solution uses List data structure to represent the whole linked list
 	// flattened out
-	// This can be a very space expensive solution
 	public Node endIndexFastAnswer(Node head, int k) {
 		List<Node> nodeList = new ArrayList<Node>();
 		Node n = head;
@@ -28,6 +29,9 @@ public class Question02 extends ChapterQuestionBase {
 			throw new IndexOutOfBoundsException();
 		}
 		return nodeList.get((nodeList.size() - 1) - k);
+		
+		// O(N) Time (N*1)
+		// O(N) Space
 	}
 
 	// This solution does not use other data structures
@@ -47,12 +51,17 @@ public class Question02 extends ChapterQuestionBase {
 		}
 		// head pointer should be k from end
 		return head;
+		
+		// O(N) Time (N*2)
+		// O(1) Space
 	}
 
 	// https://code.google.com/p/ctci/source/browse/trunk/Java/Chapter%202/Question2_2/Question.java
 	/*
 	 * AFTER READING THE BOOK They give a number of different solutions.. The
 	 * recursive approach, I had trouble tracing.. trying it here
+	 * 
+	 * Also... remember to ask if linked list size is known.. if so.. easy solution.
 	 */
 
 	public static class IntWrapper {
@@ -77,6 +86,24 @@ public class Question02 extends ChapterQuestionBase {
 		log("Returning Node [" + ((node == null) ? null : node.data)
 				+ "] Index [" + i.value + "]");
 		return node;
+		
+		// This solution takes O(N) space due to recursive calls (k is new value at each level)
+		// takes O(N) time (N *2) recurse through and back again
+		
+	}
+	
+	// A more optimal approach suggested by the book is to use 2 pointers, k nodes apart.
+	// iterate them both until the first one hits the end. The second one is then the found node
+	// That solution runs in O(N) time and O(1) space.
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.CONSTANT; // If used books optimal suggestion
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.LINEAR;
 	}
 
 }

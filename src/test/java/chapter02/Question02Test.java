@@ -2,14 +2,20 @@ package chapter02;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import base.QuestionTestBase;
 
 import chapter02.ChapterQuestionBase.Node;
 import chapter02.Question02.IntWrapper;
 
-public class Question02Test {
+public class Question02Test extends QuestionTestBase<Question02>{
 
-	private Question02 sut = new Question02();
+	@Before
+	public void setUp() {
+		setQuestionUnderTest(new Question02());
+	}
 
 	private Node createNode() {
 		Node node = new Node(0);
@@ -27,15 +33,15 @@ public class Question02Test {
 	@Test
 	public void testEndIndex() {
 		Node n = createNode();
-		sut.log("Node list: " + n);
-		assertEquals(5, sut.endIndexFastAnswer(n, 3).data);
+		getQuestionUnderTest().log("Node list: " + n);
+		assertEquals(5, getQuestionUnderTest().endIndexFastAnswer(n, 3).data);
 	}
 
 	@Test
 	public void testEndIndexPrimitive() {
 		Node n = createNode();
-		sut.log("Node list: " + n);
-		assertEquals(5, sut.endIndex(n, 3).data);
+		getQuestionUnderTest().log("Node list: " + n);
+		assertEquals(5, getQuestionUnderTest().endIndex(n, 3).data);
 	}
 
 	/*
@@ -44,9 +50,9 @@ public class Question02Test {
 	@Test
 	public void testNthToLastR2() {
 		Node n = createNode();
-		sut.log("Node list: " + n);
+		getQuestionUnderTest().log("Node list: " + n);
 		// Uses 1 based index
-		assertEquals(6, sut.nthToLastR2(n, 3, new IntWrapper()).data);
+		assertEquals(6, getQuestionUnderTest().nthToLastR2(n, 3, new IntWrapper()).data);
 	}
 
 }

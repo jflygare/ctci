@@ -1,5 +1,7 @@
 package chapter02;
 
+import base.BigO;
+
 public class Question01 extends ChapterQuestionBase {
 
 	@Override
@@ -41,10 +43,23 @@ public class Question01 extends ChapterQuestionBase {
 	// https://code.google.com/p/ctci/source/browse/trunk/Java/Chapter%202/Question2_1/Question.java
 	/*
 	 * AFTER READING BOOK ANSWER: By "temp buffer" they meant hash table (or the
-	 * like) to keep track of visited data values
+	 * like) to keep track of visited data values. Though, in the example they give,
+	 * a Hashtable is used when a simple set would suffice.
+	 * If a temp buffer is used, the algorithm runs in O(N) time and O(1) space
 	 * 
 	 * Also, the book suggests using a "runner" pointer instead of my recursive
 	 * function. I did not consider looking 2 nodes ahead (node.next.next) and
-	 * re-linking it to node.next, but that works fine even if null
+	 * re-linking it to node.next, but that works fine even if null.
+	 * Both mine and the book runs in O(n^2) time and O(1) space
 	 */
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.QUADRADIC;
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.CONSTANT;
+	}
 }
