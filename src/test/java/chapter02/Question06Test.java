@@ -4,15 +4,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import base.QuestionTestBase;
+
 import chapter02.ChapterQuestionBase.Node;
 
-public class Question06Test {
+public class Question06Test extends QuestionTestBase<Question06> {
 
-	private Question06 sut = new Question06();
 	private Node n1;
 
 	@Before
 	public void setUp() {
+		setQuestionUnderTest(new Question06());
 		n1 = new Node('A');
 		n1.appendToTail('B');
 		Node nc = n1.appendToTail('C');
@@ -23,7 +25,7 @@ public class Question06Test {
 
 	@Test
 	public void testFindCircularNode() {
-		Node nc = sut.findCircularNode(n1);
+		Node nc = getQuestionUnderTest().findCircularNode(n1);
 		Assert.assertNotNull(nc);
 		Assert.assertTrue(nc.data == 'C');
 	}

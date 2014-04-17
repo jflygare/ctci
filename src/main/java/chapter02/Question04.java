@@ -3,6 +3,8 @@ package chapter02;
 import java.util.ArrayList;
 import java.util.List;
 
+import base.BigO;
+
 public class Question04 extends ChapterQuestionBase {
 
 	@Override
@@ -39,6 +41,8 @@ public class Question04 extends ChapterQuestionBase {
 		}
 		// Return head element
 		return headList.get(0);
+		
+		// This runs in O(N) Time and O(N) space
 	}
 
 	public Node partition(Node node, int x) {
@@ -64,5 +68,18 @@ public class Question04 extends ChapterQuestionBase {
 			pop = newPop;
 		}
 		return head;
+		
+		// This solution is essentially the same as the ones in the book.
+		// This runs in O(N) time and O(1) space
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.CONSTANT;
 	}
 }

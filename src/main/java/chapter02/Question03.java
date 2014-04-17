@@ -1,5 +1,7 @@
 package chapter02;
 
+import base.BigO;
+
 public class Question03 extends ChapterQuestionBase {
 
 	@Override
@@ -32,5 +34,17 @@ public class Question03 extends ChapterQuestionBase {
 	 * AFTER READING THE BOOK I realize that it is un-necessary to traverse the
 	 * whole rest of the list. Simply copy the data and link of the next node
 	 * and then delete it.
+	 * 
+	 * My solution runs in O(N) time and O(1) space 
 	 */
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.CONSTANT; //If used solution in book
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.CONSTANT;
+	}
 }

@@ -1,5 +1,7 @@
 package chapter02;
 
+import base.BigO;
+
 public class Question07 extends ChapterQuestionBase {
 
 	@Override
@@ -21,5 +23,25 @@ public class Question07 extends ChapterQuestionBase {
 			tail = tail.prev;
 		}
 		return true;
+		
+		// This runs in O(N) time and O(1) space
+	}
+	
+	// The book has a few suggestions for single linked list
+	
+	// slow/fast runner to find halfway point and keep first
+	// half in a stack (O(N) time / O(N) space)
+	//
+	// The others involve recursive approaches.
+	// TODO: Implement these approaches and understand recursion complexity calculations further
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.CONSTANT; // If doubly linked lists are allowed
 	}
 }

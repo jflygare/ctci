@@ -6,15 +6,17 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import base.QuestionTestBase;
+
 import chapter02.ChapterQuestionBase.DNode;
 
-public class Question07Test {
+public class Question07Test extends QuestionTestBase<Question07> {
 
-	private Question07 sut = new Question07();
 	private DNode dn;
 
 	@Before
 	public void setUp() {
+		setQuestionUnderTest(new Question07());
 		dn = new DNode('A');
 		dn.appendToTail('B');
 		dn.appendToTail('C');
@@ -28,8 +30,8 @@ public class Question07Test {
 
 	@Test
 	public void testIsPalindrome() {
-		assertTrue(sut.isPalindrome(dn));
-		assertFalse(sut.isPalindrome((DNode) dn.appendToTail('X')));
+		assertTrue(getQuestionUnderTest().isPalindrome(dn));
+		assertFalse(getQuestionUnderTest().isPalindrome((DNode) dn.appendToTail('X')));
 	}
 
 }

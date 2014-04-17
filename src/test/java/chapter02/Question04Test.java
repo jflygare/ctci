@@ -2,13 +2,19 @@ package chapter02;
 
 import junit.framework.Assert;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import base.QuestionTestBase;
 
 import chapter02.ChapterQuestionBase.Node;
 
-public class Question04Test {
+public class Question04Test extends QuestionTestBase<Question04>{
 
-	private Question04 sut = new Question04();
+	@Before
+	public void setUp() {
+		setQuestionUnderTest(new Question04());
+	}
 
 	private Node createNode() {
 		Node node = new Node(1);
@@ -26,18 +32,18 @@ public class Question04Test {
 	@Test
 	public void testPartitionFastAnswer() {
 		Node node = createNode();
-		sut.log("Input list:       " + node);
-		Node pNode = sut.partitionFastAnswer(node, 4);
-		sut.log("Partitioned list: " + pNode);
+		getQuestionUnderTest().log("Input list:       " + node);
+		Node pNode = getQuestionUnderTest().partitionFastAnswer(node, 4);
+		getQuestionUnderTest().log("Partitioned list: " + pNode);
 		Assert.assertEquals("[3][2][0][1][7][5][6][8][4]", pNode.toString());
 	}
 
 	@Test
 	public void testPartition() {
 		Node node = createNode();
-		sut.log("Input list:       " + node);
-		Node pNode = sut.partition(node, 4);
-		sut.log("Partitioned list: " + pNode);
+		getQuestionUnderTest().log("Input list:       " + node);
+		Node pNode = getQuestionUnderTest().partition(node, 4);
+		getQuestionUnderTest().log("Partitioned list: " + pNode);
 		Assert.assertEquals("[3][2][0][1][7][5][6][8][4]", pNode.toString());
 	}
 
