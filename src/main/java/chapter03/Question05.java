@@ -1,5 +1,7 @@
 package chapter03;
 
+import base.BigO;
+
 
 public class Question05 extends ChapterQuestionBase {
 
@@ -36,5 +38,25 @@ public class Question05 extends ChapterQuestionBase {
 			// Should be in reverse order from which elements were added
 			return s1.pop();
 		}
+		
+		/*
+		 * The book points out that on average, it is more efficient to do the shifting from one
+		 * stack to the other on the remove operation and only when the remove queue is empty. Depending
+		 * on the implementation of the stack (like mine that uses linked nodes), the shift operation can
+		 * be averaged to O(1) time.
+		 * 
+		 * Also... remember to study up on the Queue interface (add/remove/element/offer/poll/peek)
+		 */
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		//return BigO.LINEAR;
+		return BigO.CONSTANT; //If doing lazy shifting like book suggests
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR;
 	}
 }

@@ -3,6 +3,8 @@ package chapter03;
 import java.util.ArrayList;
 import java.util.List;
 
+import base.BigO;
+
 public class Question04 extends ChapterQuestionBase {
 
 	@Override
@@ -55,7 +57,7 @@ public class Question04 extends ChapterQuestionBase {
 			return moves;
 		}
 
-		// 2^n-1 time complexity
+		// (2^n)-1 moves = O(2^n) time complexity
 		private Ring move(Ring last) {
 			for (int i = 0; i < towerList.size(); i++) {
 				Generics.Stack<Ring> tower = towerList.get(i);
@@ -138,5 +140,15 @@ public class Question04 extends ChapterQuestionBase {
 			}
 			log(sb.toString());
 		}
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.EXPONENTIAL;
 	}
 }

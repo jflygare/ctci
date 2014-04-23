@@ -5,14 +5,17 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 
+import base.QuestionTestBase;
+
 import chapter03.Question03.SetOfStacks;
 
-public class Question03Test {
+public class Question03Test extends QuestionTestBase<Question03>{
 
 	private SetOfStacks<Integer> sut;
 
 	@Before
 	public void setUp() {
+		setQuestionUnderTest(new Question03());
 		sut = new SetOfStacks<Integer>(10);
 		for (int i = 0; i < 100; i++) {
 			sut.push(i);
@@ -36,5 +39,7 @@ public class Question03Test {
 		}
 		// Just validate visually
 	}
+	
+	//TODO: Validate random pushing and popping
 
 }

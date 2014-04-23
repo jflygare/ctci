@@ -1,12 +1,14 @@
 package chapter03;
 
+import base.BigO;
+
 public class Question06 extends ChapterQuestionBase {
 
 	@Override
 	public String question() {
 		return "Write a program to sort a stack in ascending order (with biggest "
 				+ "items on top). You may use additional stacks to hold items, but you may not copy "
-				+ "the elements into any other data structure (suck as an array). "
+				+ "the elements into any other data structure (such as an array). "
 				+ "The stack supports the following operations: push, pop, peek, and isEmpty";
 	}
 
@@ -49,4 +51,14 @@ public class Question06 extends ChapterQuestionBase {
 	 * AFTER READING THE BOOK, it points out that the 3 stack is not necessary,
 	 * and we can use the original stack as a buffer. Clever.
 	 */
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR;
+	}
 }

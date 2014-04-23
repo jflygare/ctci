@@ -1,14 +1,20 @@
 package chapter03;
 
+import org.junit.Before;
 import org.junit.Test;
 
-public class Question01Test {
+import base.QuestionTestBase;
 
-	private Question01 sut = new Question01();
+public class Question01Test extends QuestionTestBase<Question01> {
+
+	@Before
+	public void setUp() {
+		setQuestionUnderTest(new Question01());
+	}
 
 	@Test
 	public void test() {
-		sut.log("Not writing any code for question: " + sut.question());
+		getQuestionUnderTest().log("Not writing any code for question");
 	}
 
 }

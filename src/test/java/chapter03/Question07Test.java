@@ -5,14 +5,18 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import base.QuestionTestBase;
+
 import chapter03.Question07.AnimalShelter;
 
-public class Question07Test {
+public class Question07Test extends QuestionTestBase<Question07> {
 
-	private AnimalShelter sut = new AnimalShelter();
+	private AnimalShelter sut;
 
 	@Before
 	public void setUp() {
+		setQuestionUnderTest(new Question07());
+		sut = new AnimalShelter();
 		sut.enqueue(new AnimalShelter.Dog("spot"));
 		sut.enqueue(new AnimalShelter.Dog("spike"));
 		sut.enqueue(new AnimalShelter.Cat("whiskers"));

@@ -1,5 +1,7 @@
 package chapter03;
 
+import base.BigO;
+
 public class Question02 extends ChapterQuestionBase {
 
 	@Override
@@ -32,8 +34,9 @@ public class Question02 extends ChapterQuestionBase {
 			if (cur != null && min > cur) {
 				min = cur;
 			}
-			log("Setting min value to " + min);
+			//log("Setting min value to " + min);
 			minStack.push(min); // Push the min value
+			log("Stack [" + data + "] Min [" + min + "]");
 			super.push(data);
 		}
 
@@ -43,6 +46,16 @@ public class Question02 extends ChapterQuestionBase {
 			minStack.pop(); // Throw value away
 			return super.pop();
 		}
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.CONSTANT;
 	}
 
 }

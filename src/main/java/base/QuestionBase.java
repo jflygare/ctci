@@ -15,17 +15,9 @@ public abstract class QuestionBase {
 
 	public abstract String answersUrl();
 	
-	//public abstract BigO optimalSpaceComplexity();
+	public abstract BigO solutionSpaceComplexity();
 	
-	//public abstract BigO optimalTimeComplexity();
-
-	public BigO solutionSpaceComplexity() {
-		return BigO.UNKNOWN;
-	}
-
-	public BigO solutionTimeComplexity() {
-		return BigO.UNKNOWN;
-	}
+	public abstract BigO solutionTimeComplexity();
 	
 	@Override
 	public String toString() {

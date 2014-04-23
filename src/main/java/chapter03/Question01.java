@@ -1,5 +1,7 @@
 package chapter03;
 
+import base.BigO;
+
 public class Question01 extends ChapterQuestionBase {
 
 	@Override
@@ -33,4 +35,13 @@ public class Question01 extends ChapterQuestionBase {
 	 * this exercise.
 	 */
 
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.UNKNOWN;
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.UNKNOWN;
+	}
 }

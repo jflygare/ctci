@@ -2,6 +2,8 @@ package chapter03;
 
 import java.util.LinkedList;
 
+import base.BigO;
+
 public class Question07 extends ChapterQuestionBase {
 
 	@Override
@@ -88,4 +90,14 @@ public class Question07 extends ChapterQuestionBase {
 	 * complexity, but is negligible compared to the potential increased time
 	 * complexity of my solution.
 	 */
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.CONSTANT; // If solution in book
+	}
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR;
+	}
 }

@@ -5,14 +5,17 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import base.QuestionTestBase;
+
 import chapter03.Question02.MStack;
 
-public class Question02Test {
+public class Question02Test extends QuestionTestBase<Question02>{
 
 	private MStack sut = new MStack();
 
 	@Before
 	public void setUp() {
+		setQuestionUnderTest(new Question02());
 		sut.push(3); // 3
 		sut.push(6); // 3
 		sut.push(2); // 2

@@ -3,12 +3,14 @@ package chapter03;
 import java.util.ArrayList;
 import java.util.List;
 
+import base.BigO;
+
 public class Question03 extends ChapterQuestionBase {
 
 	@Override
 	public String question() {
 		return "Imagine a (literal) stack of plates. If the stack gets too high, it might topple. "
-				+ "Therefore, in real live, we would likely start a new stack when the previous stack exceeds "
+				+ "Therefore, in real life, we would likely start a new stack when the previous stack exceeds "
 				+ "some threshold. Implement a data structure 'SetOfStacks' that mimics this. "
 				+ "'SetOfStacks' should be composed of several stacks and should create a new stack once "
 				+ "the previous one exceeds capacity. 'SetOfStacks.push(); and 'SetOfStacks.pop()' "
@@ -134,6 +136,22 @@ public class Question03 extends ChapterQuestionBase {
 			}
 			return sb.toString();
 		}
+	}
+	
+	/*
+	 * This solution meets the requirements, but has a potentially much higher linear space coefficient as
+	 * it does not keep each stack at capacity. This is a fair trade off since keeping the stacks at capacity
+	 * would cause the pop/push operations run at O(N) time instead of O(1) time
+	 */
+	
+	@Override
+	public BigO solutionSpaceComplexity() {
+		return BigO.LINEAR;
+	}
+	
+	@Override
+	public BigO solutionTimeComplexity() {
+		return BigO.CONSTANT; // For push/pop operations
 	}
 
 }
