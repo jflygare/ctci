@@ -88,9 +88,21 @@ public class Question01 extends ChapterQuestionBase {
 		}
 	}
 
+	
+	/*
+	 * The book solution points out that the recursive methods to getHeight and test for balance can
+	 * be combined into one method. This is done by testing the current node for balance as soon as the height
+	 * of the left and right are found. Return a -1 to indicate an unbalance and shortcut the recursion
+	 * if found.
+	 * 
+	 * NOTE: The book suggests this solution has O(log N) space complexity. But I am not sure
+	 * why, since the methods are recursive and all nodes must be visited in worst case. Each
+	 * recursion has variables.
+	 */
+	
 	@Override
 	public BigO solutionSpaceComplexity() {
-		return BigO.LINEAR;
+		return BigO.LINEAR; //? Book says their solution is LOGARITHMIC
 	}
 
 	@Override
