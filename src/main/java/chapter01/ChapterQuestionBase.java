@@ -1,6 +1,5 @@
 package chapter01;
 
-import base.BigO;
 import base.QuestionBase;
 
 public abstract class ChapterQuestionBase extends QuestionBase {

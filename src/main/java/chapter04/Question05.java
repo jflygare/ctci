@@ -23,34 +23,35 @@ public class Question05 extends ChapterQuestionBase {
 		protected boolean isBST(BinaryTreeNode<Integer> node) {
 			// Assume unique key
 
-			// post-order LRS
+			// in-order (kind of)
 			// LEFT
-			if (node.getLeft() != null
-					&& node.getLeft().getDatum() > node.getDatum()) {
+			if (node.getLeft() != null &&
+					(!isBST(node.getLeft()) ||
+					node.getLeft().getDatum() > node.getDatum())) {
 				return false;
 			}
 			// RIGHT
-			if (node.getRight() != null
-					&& node.getRight().getDatum() < node.getDatum()) {
-				return false;
-			}
-
-			// SELF
-			if (node.getLeft() != null && !isBST(node.getLeft())) {
-				return false;
-			}
-			if (node.getRight() != null && !isBST(node.getRight())) {
+			if (node.getRight() != null &&
+					(!isBST(node.getRight()) ||
+					node.getRight().getDatum() < node.getDatum())) {
 				return false;
 			}
 			return true; // full recursion
-
 		}
 	}
 	
 	/*
-	 * The book offers two solutions, each keeping track of visited data outside the recursive function.
-	 * It seems my way is more efficient than either of the suggested solutions, as mine requires no
-	 * extra memory.
+	 * After reading the solution in the book, I realized that my solution does not
+	 * account for the condition that all nodes to the left must be less then the current node
+	 * and all nodes to the right must be greater... My solution would pass given the invalid
+	 * tree:
+	 * 
+	 *    20
+	 *   /  \
+	 *  10  30
+	 *   \
+	 *    25
+	 * 
 	 */
 
 	@Override
