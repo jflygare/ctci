@@ -16,17 +16,16 @@ public class Question03 extends ChapterQuestionBase {
 	 */
 
 	public static class BinarySearchTree<T> extends BinaryTree<T> {
-
+		
 		public BinarySearchTree(T[] sortedArray) {
-			//root = addSubTree(sortedArray, 0, sortedArray.length -1);
-			root = addSubTreeBook(sortedArray, 0, sortedArray.length -1);
+			setRoot(addSubTreeBook(sortedArray, 0, sortedArray.length -1));
 		}
 
 		public BinaryTreeNode<T> addSubTree(T[] array, int startIndex, int endIndex) {
 			int size = endIndex - startIndex + 1;
 			int midIndex = (size / 2) + startIndex;
 			BinaryTreeNode<T> midNode = new BinaryTreeNode<T>(array[midIndex]);
-			
+			addNode(midNode);
 			if (size > 1)
 			{
 				midNode.setLeft(addSubTree(array, startIndex, midIndex -1));
@@ -49,6 +48,7 @@ public class Question03 extends ChapterQuestionBase {
 			}
 			int midIndex = (startIndex + endIndex) / 2;
 			BinaryTreeNode<T> midNode = new BinaryTreeNode<T>(array[midIndex]);
+			addNode(midNode);
 			midNode.setLeft(addSubTree(array, startIndex, midIndex -1));
 			midNode.setRight(addSubTree(array, midIndex + 1, endIndex));
 			return midNode;

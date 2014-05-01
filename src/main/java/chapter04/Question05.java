@@ -17,7 +17,7 @@ public class Question05 extends ChapterQuestionBase {
 		}
 
 		public boolean isBST() {
-			return isBST(root, new IntWrapper());
+			return isBST(getRoot(), new IntWrapper());
 		}
 
 		@Deprecated

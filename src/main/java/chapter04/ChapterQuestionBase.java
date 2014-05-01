@@ -194,15 +194,29 @@ public abstract class ChapterQuestionBase extends QuestionBase {
 	}
 
 	public static class BinaryTree<T> {
+		
+		// This was added around question 8 for reusability.. 
+		private Map<T, BinaryTreeNode<T>> nodeMap = new HashMap<T, BinaryTreeNode<T>>();
+		
+		public void addNode(BinaryTreeNode<T> node) {
+			nodeMap.put(node.getDatum(), node);
+		}
+		
+		@SuppressWarnings("unchecked")
+		public <V extends BinaryTreeNode<T>> V getNode(T value) {
+			return (V) nodeMap.get(value);
+		}
 
-		protected BinaryTreeNode<T> root;
+		private BinaryTreeNode<T> root;
 
-		public BinaryTreeNode<T> getRoot() {
-			return root;
+		@SuppressWarnings("unchecked")
+		public <V extends BinaryTreeNode<T>> V getRoot() {
+			return (V) root;
 		}
 
 		public void setRoot(BinaryTreeNode<T> root) {
 			this.root = root;
+			addNode(root);
 		}
 
 		public boolean isEmpty() {

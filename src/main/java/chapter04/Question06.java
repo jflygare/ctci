@@ -1,8 +1,5 @@
 package chapter04;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import base.BigO;
 
 public class Question06 extends ChapterQuestionBase {
@@ -55,17 +52,10 @@ public class Question06 extends ChapterQuestionBase {
 	 */
 	public static class NextSuccessorTree extends BinaryTree<Integer> {
 
-		private Map<Integer, LinkedBinaryTreeNode<Integer>> nodeMap = new HashMap<Integer, LinkedBinaryTreeNode<Integer>>();
-
 		public NextSuccessorTree(Integer[] sortedArray) {
-			root = addSubTree(sortedArray, 0, sortedArray.length - 1, null);
-			nodeMap.put(root.getDatum(), (LinkedBinaryTreeNode<Integer>) root);
+			setRoot(addSubTree(sortedArray, 0, sortedArray.length - 1, null));
 		}
 		
-		protected LinkedBinaryTreeNode<Integer> getNode(Integer value) {
-			return nodeMap.get(value);
-		}
-
 		public LinkedBinaryTreeNode<Integer> addSubTree(Integer[] array,
 				int startIndex, int endIndex,
 				LinkedBinaryTreeNode<Integer> parent) {
@@ -78,25 +68,15 @@ public class Question06 extends ChapterQuestionBase {
 			if (parent != null) {
 				midNode.setParent(parent);
 			}
-			nodeMap.put(midNode.getDatum(), midNode);
+			addNode(midNode);
 			midNode.setLeft(addSubTree(array, startIndex, midIndex - 1, midNode));
 			midNode.setRight(addSubTree(array, midIndex + 1, endIndex, midNode));
 			return midNode;
 		}
 
-		@Override
-		public LinkedBinaryTreeNode<Integer> getRoot() {
-			return (LinkedBinaryTreeNode<Integer>) super.getRoot();
-		}
-
-		// @Override
-		public void setRoot(LinkedBinaryTreeNode<Integer> root) {
-			super.setRoot(root);
-		}
-
 		public Integer getNext(Integer key) {
 			System.out.println("Looking for successor to: " + key);
-			LinkedBinaryTreeNode<Integer> node = nodeMap.get(key);
+			LinkedBinaryTreeNode<Integer> node = getNode(key);
 			if (node == null) {
 				return null;
 			}
@@ -111,7 +91,7 @@ public class Question06 extends ChapterQuestionBase {
 		@Deprecated
 		// Does not work for leaf nodes
 		public Integer _getNext(Integer key) {
-			BinaryTreeNode<Integer> node = nodeMap.get(key);
+			BinaryTreeNode<Integer> node = getNode(key);
 			if (node == null) {
 				return null;
 			}

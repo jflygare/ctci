@@ -24,7 +24,7 @@ public class Question01 extends ChapterQuestionBase {
 		public boolean isBalanced() {
 
 			// Start recursive call on root
-			if (isBalanced(root)) {
+			if (isBalanced(getRoot())) {
 				System.out.println("Tree is balanced");
 				return true;
 			} else {

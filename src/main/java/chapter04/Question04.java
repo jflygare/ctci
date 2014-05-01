@@ -24,7 +24,7 @@ public class Question04 extends ChapterQuestionBase {
 		public Map<Integer, LinkedList<BinaryTreeNode<T>>> getLevelLists() {
 			Map<Integer, LinkedList<BinaryTreeNode<T>>> depthMap =
 					new HashMap<Integer, LinkedList<BinaryTreeNode<T>>>();
-			fillDepthMap(root, 0, depthMap);
+			fillDepthMap(getRoot(), 0, depthMap);
 			return depthMap;
 		}
 
