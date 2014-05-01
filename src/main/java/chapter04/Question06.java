@@ -61,6 +61,10 @@ public class Question06 extends ChapterQuestionBase {
 			root = addSubTree(sortedArray, 0, sortedArray.length - 1, null);
 			nodeMap.put(root.getDatum(), (LinkedBinaryTreeNode<Integer>) root);
 		}
+		
+		protected LinkedBinaryTreeNode<Integer> getNode(Integer value) {
+			return nodeMap.get(value);
+		}
 
 		public LinkedBinaryTreeNode<Integer> addSubTree(Integer[] array,
 				int startIndex, int endIndex,

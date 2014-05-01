@@ -17,42 +17,71 @@ public class Question05 extends ChapterQuestionBase {
 		}
 
 		public boolean isBST() {
-			return isBST(root);
+			return isBST(root, new IntWrapper());
 		}
 
-		protected boolean isBST(BinaryTreeNode<Integer> node) {
+		@Deprecated
+		protected boolean _isBST(BinaryTreeNode<Integer> node) {
 			// Assume unique key
 
 			// in-order (kind of)
 			// LEFT
 			if (node.getLeft() != null &&
-					(!isBST(node.getLeft()) ||
+					(!_isBST(node.getLeft()) ||
 					node.getLeft().getDatum() > node.getDatum())) {
 				return false;
 			}
 			// RIGHT
 			if (node.getRight() != null &&
-					(!isBST(node.getRight()) ||
+					(!_isBST(node.getRight()) ||
 					node.getRight().getDatum() < node.getDatum())) {
 				return false;
 			}
 			return true; // full recursion
 		}
+		
+		/*
+		 * After reading the solution in the book, I realized that my solution does not
+		 * account for the condition that all nodes to the left must be less then the current node
+		 * and all nodes to the right must be greater... My solution would pass given the invalid
+		 * tree:
+		 * 
+		 *    20
+		 *   /  \
+		 *  10  30
+		 *   \
+		 *    25
+		 * 
+		 */
+		
+		protected boolean isBST(BinaryTreeNode<Integer> node, IntWrapper last) {
+			if (node == null) {
+				return true;
+			}
+			
+			//Left
+			if (!isBST(node.getLeft(), last)) {
+				return false;
+			}
+			
+			//Self
+			if (node.getDatum() < last.value) {
+				return false;
+			}
+			last.value = node.getDatum();
+			
+			//Right
+			if (!isBST(node.getRight(), last)) {
+				return false;
+			}
+			
+			return true; //Full recursion
+		}
+		
+		public static class IntWrapper {
+			public int value = Integer.MIN_VALUE;
+		}
 	}
-	
-	/*
-	 * After reading the solution in the book, I realized that my solution does not
-	 * account for the condition that all nodes to the left must be less then the current node
-	 * and all nodes to the right must be greater... My solution would pass given the invalid
-	 * tree:
-	 * 
-	 *    20
-	 *   /  \
-	 *  10  30
-	 *   \
-	 *    25
-	 * 
-	 */
 
 	@Override
 	public BigO solutionSpaceComplexity() {
